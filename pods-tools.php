@@ -9,7 +9,7 @@ Author URI: https://github.com/modaresimr/
 GitHub Plugin URI: https://github.com/modaresimr/pods-tools
 */
 
-add_action( 'pods_api_post_save_pod_item', 'my_custom_pods_update_terms_on_save', 10, 3 );
+add_action( 'pods_api_post_save_pod_item_user_dictionary', 'my_custom_pods_update_terms_on_save', 10, 3 );
 
 /** 
  * Update post terms on save for another associated taxonomy. 
@@ -19,6 +19,10 @@ add_action( 'pods_api_post_save_pod_item', 'my_custom_pods_update_terms_on_save'
  * @param int     $id          Item ID. 
  */ 
 function my_custom_pods_update_terms_on_save( $pieces, $is_new_item, $id ) { 
+	var_dump($pieces);
+	var_dump($pieces['fields']);
+	//(var_export($pieces['fields'],true));
+	die();
     // Get the value of a single select Relationship field. 
     //$term = (int) $pieces['fields']['my_relationship_field']['value']; 
 
@@ -41,10 +45,10 @@ add_action( 'pods_api_post_save_pod_item', 'my_title_content_pods_update_terms_o
  * @param int     $id          Item ID. 
  */ 
 function my_title_content_pods_update_terms_on_save( $pieces, $is_new_item, $id ) { 
-	var_dump($pieces);
-	var_dump($pieces['fields']);
+	//var_dump($pieces);
+	//var_dump($pieces['fields']);
 	//(var_export($pieces['fields'],true));
-	die();
+	//die();
 	
    if ( ! wp_is_post_revision( $id ) ) { 
         // Avoid recursion loops on saving. 
