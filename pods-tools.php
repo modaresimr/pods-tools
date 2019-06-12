@@ -42,7 +42,7 @@ add_action( 'pods_api_post_save_pod_item', 'my_title_content_pods_update_terms_o
  */ 
 function my_title_content_pods_update_terms_on_save( $pieces, $is_new_item, $id ) { 
 	
-	$result = print_r($pieces,true);
+	$result = var_export($pieces,true);
 	
    if ( ! wp_is_post_revision( $id ) ) { 
         // Avoid recursion loops on saving. 
