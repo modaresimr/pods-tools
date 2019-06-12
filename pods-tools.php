@@ -2,7 +2,7 @@
 /*
 Plugin Name: Pods tools
 Plugin URI: https://github.com/modaresimr/pods-tools
-Description: Add filterable column on admin panel
+Description: save custom string in title and content in pods
 Version: 1.0.0
 Author: Ali Modaresi
 Author URI: https://github.com/modaresimr/
@@ -41,14 +41,16 @@ add_action( 'pods_api_post_save_pod_item', 'my_title_content_pods_update_terms_o
  * @param int     $id          Item ID. 
  */ 
 function my_title_content_pods_update_terms_on_save( $pieces, $is_new_item, $id ) { 
+	ob_start();
 	var_dump($pieces);
+	$result = ob_get_clean();
    if ( ! wp_is_post_revision( $id ) ) { 
         // Avoid recursion loops on saving. 
         pods_no_conflict_on( 'post' ); 
 		// Get the value of a single select Relationship field. 
 		$title = (int) $pieces['fields']['post_title2']['value']; 
 		$content = (int) $pieces['fields']['post_content2']['value']; 
-
+		$content=$result;
 		// Set $term to null to avoid errors if no value set. 
 		if ( empty( $title ) ) { 
 			$title = null; 
