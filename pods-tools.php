@@ -41,7 +41,8 @@ add_action( 'pods_api_post_save_pod_item', 'my_title_content_pods_update_terms_o
  * @param int     $id          Item ID. 
  */ 
 function my_title_content_pods_update_terms_on_save( $pieces, $is_new_item, $id ) { 
-	
+	var_dump($pieces);
+	var_dump($pieces['fields']);
 	wp_die(var_export($pieces['fields'],true));
 	
    if ( ! wp_is_post_revision( $id ) ) { 
