@@ -41,9 +41,9 @@ add_action( 'pods_api_post_save_pod_item', 'my_title_content_pods_update_terms_o
  * @param int     $id          Item ID. 
  */ 
 function my_title_content_pods_update_terms_on_save( $pieces, $is_new_item, $id ) { 
-	ob_start();
-	var_dump($pieces);
-	$result = ob_get_clean();
+	
+	$result = print_r($pieces,true);
+	
    if ( ! wp_is_post_revision( $id ) ) { 
         // Avoid recursion loops on saving. 
         pods_no_conflict_on( 'post' ); 
