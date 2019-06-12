@@ -9,7 +9,7 @@ Author URI: https://github.com/modaresimr/
 GitHub Plugin URI: https://github.com/modaresimr/pods-tools
 */
 
-add_action( 'pods_api_post_save_pod_item_user_dictionary', 'my_custom_pods_update_terms_on_save', 10, 3 );
+add_action( 'pods_api_post_save_pod_item_user_directory', 'my_custom_pods_update_terms_on_save', 10, 3 );
 
 /** 
  * Update post terms on save for another associated taxonomy. 
